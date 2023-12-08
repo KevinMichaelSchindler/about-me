@@ -222,119 +222,148 @@ input, select, textarea {
 	/* margin-bottom: 15px; */
   }
 
+  
 
-  .skills-bar-container{
-	position: relative;
-	width: 40%;
-	min-width: 300px;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	list-style:none;
-	
-	li{
+  .skills {
+    
+  }
+  .skill-content{padding: 50px 0 80px;}
+  .single-skill-content{padding-top: 100px;}
+  .section-heading h2 {
+	  font-size: 24px;
+	  font-weight: 600;
+	  text-transform: uppercase;
+	  padding-bottom: 50px;
+	  border-bottom: 1px solid #e5ebf2;
+  }
+  .single-progress-txt {
+	  display: flex;
+	  text-align: center;
+	  justify-content: center;
+	  align-items: center;
+  }
+  .single-progress-txt h3 {
+
+	  width: 30%;
+	  color: #a606c3;
 	  position: relative;
-	  width: 100%;
-	  padding: $li-padding;
-	  margin-bottom: 10px;
-	  
-	  .progressbar-title{
-		color: $progressbar-title-color;
-		
-		h3{
-		  display: inline-block;
-		}
-		.percent{
-		  position: absolute;
-		  right: $li-padding;
-		}
-	  }// end progressbar-title
-	  
-	  .bar-container{
-		background: #555;
-		position: relative;
-		width: 100%;
-		height: 5px;
-		margin-top: 5px;
-		display: block;
-		@include border-radius(5px);
-		
-		.progressbar{
-		  position:absolute;
-		  width:0%;
-		  height: 100%;
-		  @include border-radius(5px);
+	  top: 6px;
+	  left: 20px;
+	  align-items: center;
+	  display: flex;
+	  flex-direction: row; 
+	  align-items: center;
+	  justify-content: center;
+	  text-align: center;
+  }
+  .barWrapper {
+	  font-weight: 400;
+	  font-size: 16px;
+	  text-transform: uppercase;
+  }
+  .progress {
+	  border-radius:3px;
+	  overflow: visible;
+	  background: #e6ecf3;
+	  height:8px;
+	  margin-top: 20px 0;
+	  /* margin-top: 15px; */
+	  width: 70%;
+	  /* margin-bottom: 37px; */
+	  display: flex;
+	  flex-direction: row; 
+	  align-items: center;
+
+  }
+
+  .tooltip{
+	 position:relative;
+	 float:right;
+  }
+  .tooltip > .tooltip-inner {
+	 background-color: transparent;
+	 padding: 1px 5px;
+	 color: #b636ff;
+	 font-weight: 500;
+	 font-size: 12px;
+	 border-radius: 0;
+  }
+  .popOver + .tooltip > .tooltip-arrow {
+	 border-left: 6px solid transparent;
+	 border-right: 6px solid transparent;
+	 border-top: 6px solid #fff;
+	 bottom: -1px;
+	 transform: translateX(-50%);
+	 margin-left: 0;
+  }
+
   
-		  -webkit-animation-duration: 2s;
-		  animation-duration: 2s;
-		  -webkit-animation-timing-function: ease-out;
-		  animation-timing-function: ease-out;
-		  -webkit-animation-fill-mode: both;
-		  animation-fill-mode: both;
-		}
-		#progress-html{
-		  -webkit-animation-name: progress-html;
-		  animation-name: progress-html;
-		  -webkit-animation-delay: $animation-delay;
-		  animation-delay: $animation-delay;
-		}
-  
-		#progress-css{
-		  -webkit-animation-name: progress-css;
-		  animation-name: progress-css;
-		  -webkit-animation-delay: $animation-delay*2;
-		  animation-delay: $animation-delay*2;
-		}
-  
-		#progress-javascript{
-		  -webkit-animation-name: progress-javascript;
-		  animation-name: progress-javascript;
-		  -webkit-animation-delay:$animation-delay*3;
-		  animation-delay: $animation-delay*3;
-		}
-  
-		#progress-php{
-		  -webkit-animation-name: progress-php;
-		  animation-name: progress-php;
-		  -webkit-animation-delay: $animation-delay*4;
-		  animation-delay: $animation-delay*4;
-		}
-  
-		#progress-angular{
-		  -webkit-animation-name: progress-angular;
-		  animation-name: progress-angular;
-		  -webkit-animation-delay: $animation-delay*5;
-		  animation-delay: $animation-delay*5;
-		}
-	  }// end bar-container
-	}
+
+  .skills {
+	background-color: #f5f5f5;
+	padding: 50px 0;
   }
   
-  .progressred{background-color:$red;}
-  .progressblue{background-color:$blue;}
-  .progresspurple{background-color:$purple;}
-  .progressorange{background-color:$orange;}
-  .progressgreen{background-color:$green;}
+  .section-heading {
+	margin-bottom: 30px;
+  }
   
-  @-webkit-keyframes progress-html{0%{width: 0%;} 100%{ width: 100%;}}
-  @-webkit-keyframes progress-css{0%{width: 0%;} 100%{ width: 90%;}}
-  @-webkit-keyframes progress-javascript{0%{width: 0%;} 100%{ width: 70%;}}
-  @-webkit-keyframes progress-php{0%{width: 0%;} 100%{ width: 55%;}}
-  @-webkit-keyframes progress-angular{0%{width: 0%;} 100%{ width: 65%;}}
+  .container {
+	max-width: 1200px;
+	margin: 0 auto;
+  }
   
-  @-moz-keyframes progress-html{0%{width: 0%;} 100%{ width: 100%;}}
-  @-moz-keyframes progress-css{0%{width: 0%;} 100%{ width: 90%;}}
-  @-moz-keyframes progress-javascript{0%{width: 0%;} 100%{ width: 70%;}}
-  @-moz-keyframes progress-php{0%{width: 0%;} 100%{ width: 55%;}}
-  @-moz-keyframes progress-angular{0%{width: 0%;} 100%{ width: 65%;}}
+  .row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
   
-  @keyframes progress-html{0%{width: 0%;} 100%{ width: 100%;}}
-  @keyframes progress-css{0%{width: 0%;} 100%{ width: 90%;}}
-  @keyframes progress-javascript{0%{width: 0%;} 100%{ width: 70%;}}
-  @keyframes progress-php{0%{width: 0%;} 100%{ width: 55%;}}
-  @keyframes progress-angular{0%{width: 0%;} 100%{ width: 65%;}}
+    
+  .col-md-12 {
+	width: 100%;
+	/* margin-bottom: 30px; */
+  }
   
+  .col-md-6 {
+	width: 48%;
+	margin-bottom: 30px;
+  }
+  
+  .single-skill-content {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+  }
+  
+  .barWrapper {
+	margin-bottom: 20px;
+  }
+  
+  .progressText {
+	/* text-align: left; */
+	font-weight: bold;
+	/* justify-content: start; */
+  }
+  
+  .progress-bar {
+	background-color: #4caf50;
+	height: 8px;
+	border-radius: 5px;
+  
+	/* Animation */
+	animation-duration:3s;
+	animation-timing-function: ease-out;
+  }
+  
+  @keyframes fillProgressBar {
+	from {
+	  width: 0;
+	}
+	to {
+	  width: 100%;
+	}
+  }
 /* .image-row {
     display: flex;
     justify-content: space-between;

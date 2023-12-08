@@ -396,24 +396,104 @@ for (i = 0; i < coll.length; i++) {
 //   // Call the function for each row
 //   adjustImageSizes('.image-row');
 
-var lang = {
-	"html": "100%",
-	"css": "90%",
-	"javascript": "70%",
-	"php": "55%",
-	"angular": "65%"
-  };
+// var lang = {
+// 	"html": "100%",
+// 	"css": "90%",
+// 	"javascript": "70%",
+// 	"php": "55%",
+// 	"angular": "65%"
+//   };
   
-  var multiply = 4;
+//   var multiply = 4;
   
-  $.each( lang, function( language, pourcent) {
+//   $.each( lang, function( language, pourcent) {
   
-	var delay = 700;
+// 	var delay = 700;
 	
-	setTimeout(function() {
-	  $('#'+language+'-pourcent').html(pourcent);
-	},delay*multiply);
+// 	setTimeout(function() {
+// 	  $('#'+language+'-pourcent').html(pourcent);
+// 	},delay*multiply);
 	
-	multiply++;
+// 	multiply++;
   
-  });
+//   });
+
+
+// 3. Progress-bar
+
+	// var dataToggleTooTip = $('[data-toggle="tooltip"]');
+	// var progressBar = $(".progress-bar");
+	// if (progressBar.length) {
+	// 	progressBar.appear(function () {
+	// 		dataToggleTooTip.tooltip({
+	// 			trigger: 'manual'
+	// 		}).tooltip('show');
+	// 		progressBar.each(function () {
+	// 			var each_bar_width = $(this).attr('aria-valuenow');
+	// 			$(this).width(each_bar_width + '%');
+	// 		});
+	// 	});
+	// }
+	document.addEventListener('DOMContentLoaded', function () {
+		const skillsColumn1 = document.getElementById('skillsColumn1');
+		// const skillsColumn2 = document.getElementById('skillsColumn2');
+	
+		function createSkill(skillName, percentage, rating) {
+			const barWrapper = document.createElement('div');
+			barWrapper.classList.add('barWrapper');
+	
+			const progressText = document.createElement('span');
+			progressText.classList.add('progressText');
+			progressText.textContent = skillName;
+	
+			const progress = document.createElement('div');
+			progress.classList.add('progress');
+			const progressBar = document.createElement('div');
+			progressBar.classList.add('progress-bar');
+			progressBar.style.width = '0'; // Initial width set to 0
+			progressBar.classList.add('fillProgressBar'); // Apply animation class dynamically
+	
+			progress.appendChild(progressBar);
+	
+			const singleProgressTxt = document.createElement('div');
+			singleProgressTxt.classList.add('single-progress-txt');
+			singleProgressTxt.appendChild(progress);
+			const h3 = document.createElement('h3');
+			h3.textContent = '0%'; // Initial text set to 0%
+			singleProgressTxt.appendChild(h3);
+	
+			barWrapper.appendChild(progressText);
+			barWrapper.appendChild(singleProgressTxt);
+	
+			// Intersection Observer to trigger animation when element is in the viewport
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						progressBar.style.width = percentage + '%'; // Set width when in viewport
+						h3.textContent = rating; // Update text when in viewport
+					} else {
+						progressBar.style.width = '0'; // Reset width when leaving viewport
+						h3.textContent = '0%'; // Reset text when leaving viewport
+					}
+				});
+			});
+	
+			observer.observe(barWrapper);
+	
+			return barWrapper;
+		}
+	
+		// Skills for column 1
+		skillsColumn1.appendChild(createSkill('Frontend', 90, "Can get by"));
+		skillsColumn1.appendChild(createSkill('Frontend', 70, "Monkey Presses Buttons and Some Things Work"));
+		// skillsColumn1.appendChild(createSkill('Adobe Illustrator', 85, ));
+		// skillsColumn1.appendChild(createSkill('Adobe After Effects', 97));
+		// skillsColumn1.appendChild(createSkill('Sketch', 90));
+	
+		// Skills for column 2
+		// skillsColumn2.appendChild(createSkill('HTML 5', 90));
+		// skillsColumn2.appendChild(createSkill('CSS 3 Animation', 85));
+		// skillsColumn2.appendChild(createSkill('Communication', 97));
+		// skillsColumn2.appendChild(createSkill('Creativity', 90));
+	});
+	
