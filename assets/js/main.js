@@ -279,59 +279,35 @@ $(function(){
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.getElementById('alp-toggleButton1');
-    const toggleContent = document.getElementById('alp-p1');
-	const toggleButton2 = document.getElementById('alp-toggleButton2');
-    const toggleContent2 = document.getElementById('alp-p2');
-	// const toggleButtonh2 = document.getElementById('alp-togglebutton-h2');
-    toggleButton.addEventListener('click', function () {
-		toggleButton2.style.display = (toggleContent.style.display === 'none') ? 'inline-flex' : 'none';
-        toggleContent.style.display = (toggleContent.style.display === 'none') ? 'block' : 'none';
-		toggleButton.style.display = (toggleContent.style.display === 'none') ? 'block' : 'none';
-        // toggleButton.innerText = (toggleContent.style.display === 'none') ? 'More' : 'Less';
-    });
+    setupToggle('alp', 2); // 2 buttons for 'alp' section
+    setupToggle('hydro', 2); // 1 button for 'hydro' section
+    setupToggle('comp', 1);
+	setupToggle('tai', 1); 
 
-	toggleButton2.addEventListener('click', function () {
-		toggleContent2.style.display = (toggleContent2.style.display === 'none') ? 'block' : 'none';
-		toggleButton2.style.display = (toggleContent.style.display === 'none') ? 'inline-flex' : 'none';
-        // toggleButton.innerText = (toggleContent.style.display === 'none') ? 'More' : 'Less';
-    });
-
-	// toggleButtonh2.addEventListener('click', function () {
-	// 	var content = this.nextElementSibling;
-	// 	if (content.style.display === "block") {
-	// 		toggleContent.style.display = 'none';
-	// 		toggleContent2.style.display = 'none';
-	// 		toggleButton.style.display = 'inline-flex';
-	// 		toggleButton2.style.display = 'none';
-	// 	}
-
-    // });
-
-	
+    // Add more sections as needed
 });
 
+function setupToggle(section, numButtons) {
+    const toggleButtons = Array.from({ length: numButtons }, (_, index) =>
+        document.getElementById(`${section}-toggleButton${index + 1}`)
+    );
+    const toggleContents = Array.from({ length: numButtons }, (_, index) =>
+        document.getElementById(`${section}-p${index + 1}`)
+    );
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.getElementById('hydro-toggleButton1');
-    const toggleContent = document.getElementById('hydro-p1');
-	const toggleButton2 = document.getElementById('hydro-toggleButton2');
-    const toggleContent2 = document.getElementById('hydro-p2');
-	// const toggleButtonh2 = document.getElementById('hydro-togglebutton-h2');
-    toggleButton.addEventListener('click', function () {
-		toggleButton2.style.display = (toggleContent.style.display === 'none') ? 'inline-flex' : 'none';
-        toggleContent.style.display = (toggleContent.style.display === 'none') ? 'block' : 'none';
-		toggleButton.style.display = (toggleContent.style.display === 'none') ? 'block' : 'none';
-        // toggleButton.innerText = (toggleContent.style.display === 'none') ? 'More' : 'Less';
+    toggleButtons.forEach((button, index) => {
+        if (button && toggleContents[index]) {
+            button.addEventListener('click', function () {
+                toggleContents.forEach((content, i) => {
+                    if (button && content) {
+                        content.style.display = (content.style.display === 'none') ? 'block' : 'none';
+                        button.style.display = (content.style.display === 'none') ? 'inline-flex' : 'none';
+                    }
+                });
+            });
+        }
     });
-
-	toggleButton2.addEventListener('click', function () {
-		toggleContent2.style.display = (toggleContent2.style.display === 'none') ? 'block' : 'none';
-		toggleButton2.style.display = (toggleContent.style.display === 'none') ? 'inline-flex' : 'none';
-        // toggleButton.innerText = (toggleContent.style.display === 'none') ? 'More' : 'Less';
-    });
-});
+}
 
 // document.addEventListener('DOMContentLoaded', function () {
 // 	const toggleButton = document.getElementById('toggleButton');
@@ -374,12 +350,70 @@ for (i = 0; i < coll.length; i++) {
 	});
 }
 
-var image1 = document.getElementById('image1');
-var image2 = document.getElementById('image2');
+// function adjustImageSizes(rowSelector) {
+//     var rows = document.querySelectorAll(rowSelector);
 
-// Calculate minimum height
-var minHeight = Math.min(image1.height, image2.height);
+//     rows.forEach(function(row) {
+//       var images = row.querySelectorAll('.image-container img');
+//       var minHeight = Math.min.apply(null, Array.from(images).map(img => img.height));
 
-// Apply minimum height to both images
-image1.style.height = minHeight + 'px';
-image2.style.height = minHeight + 'px';
+//       images.forEach(function(img) {
+//         img.style.width = '100%';
+//         img.style.height = minHeight + 'px';
+//       });
+//     });
+//   }
+
+//   // Call the function for each row
+//   adjustImageSizes('.image-row');
+
+
+//   function adjustImageSizes(rowSelector) {
+//     var rows = document.querySelectorAll(rowSelector);
+
+//     function setImagesHeight(images) {
+//       var minHeight = Math.min.apply(null, Array.from(images).map(img => img.height));
+      
+//       images.forEach(function(img) {
+//         img.style.height = minHeight + 'px';
+//       });
+//     }
+
+//     function handleResize() {
+//       rows.forEach(function(row) {
+//         var images = row.querySelectorAll('.image-container img');
+//         setImagesHeight(images);
+//       });
+//     }
+
+//     // Initial setup
+//     handleResize();
+
+//     // Recalculate on window resize
+//     window.addEventListener('resize', handleResize);
+//   }
+
+//   // Call the function for each row
+//   adjustImageSizes('.image-row');
+
+var lang = {
+	"html": "100%",
+	"css": "90%",
+	"javascript": "70%",
+	"php": "55%",
+	"angular": "65%"
+  };
+  
+  var multiply = 4;
+  
+  $.each( lang, function( language, pourcent) {
+  
+	var delay = 700;
+	
+	setTimeout(function() {
+	  $('#'+language+'-pourcent').html(pourcent);
+	},delay*multiply);
+	
+	multiply++;
+  
+  });
