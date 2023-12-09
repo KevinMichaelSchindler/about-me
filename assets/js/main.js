@@ -438,13 +438,16 @@ for (i = 0; i < coll.length; i++) {
 		const skillsColumn1 = document.getElementById('skillsColumn1');
 		// const skillsColumn2 = document.getElementById('skillsColumn2');
 	
-		function createSkill(skillName, percentage, rating) {
+		function createSkill(skillName, percentage, rating, techList) {
 			const barWrapper = document.createElement('div');
 			barWrapper.classList.add('barWrapper');
 	
 			const progressText = document.createElement('span');
 			progressText.classList.add('progressText');
 			progressText.textContent = skillName;
+
+			const progressCol = document.createElement('div');
+			progressCol.classList.add('progress-col');
 	
 			const progress = document.createElement('div');
 			progress.classList.add('progress');
@@ -453,17 +456,33 @@ for (i = 0; i < coll.length; i++) {
 			progressBar.style.width = '0'; // Initial width set to 0
 			progressBar.classList.add('fillProgressBar'); // Apply animation class dynamically
 	
+
 			progress.appendChild(progressBar);
+			progressCol.appendChild(progress);
+
+			const technologies = document.createElement('div');
+			technologies.classList.add('technologies-txt');
+			const p = document.createElement('p');
+			p.textContent = techList
+			technologies.appendChild(p);
+			progressCol.appendChild(technologies);
+
 	
 			const singleProgressTxt = document.createElement('div');
 			singleProgressTxt.classList.add('single-progress-txt');
-			singleProgressTxt.appendChild(progress);
+			singleProgressTxt.appendChild(progressCol);
 			const h3 = document.createElement('h3');
 			h3.textContent = '0%'; // Initial text set to 0%
 			singleProgressTxt.appendChild(h3);
 	
+	
+
 			barWrapper.appendChild(progressText);
+			// barWrapper.appendChild(technologies);
 			barWrapper.appendChild(singleProgressTxt);
+
+			// barWrapper.appendChild(technologies);
+
 	
 			// Intersection Observer to trigger animation when element is in the viewport
 			const observer = new IntersectionObserver((entries) => {
@@ -484,8 +503,12 @@ for (i = 0; i < coll.length; i++) {
 		}
 	
 		// Skills for column 1
-		skillsColumn1.appendChild(createSkill('Frontend', 90, "Can get by"));
-		skillsColumn1.appendChild(createSkill('Frontend', 70, "Monkey Presses Buttons and Some Things Work"));
+		skillsColumn1.appendChild(createSkill('Data Science/ML', 70, "Decent", "Python, Pytorch, Tensorflow, Scikit, Xgboost, Numpy, Pandas, etc." ));
+		skillsColumn1.appendChild(createSkill('Frontend', 50, "Can get by", "Angular/Typescript, HTML, CSS"));
+		skillsColumn1.appendChild(createSkill('Backend', 30, "Monkey pressing buttons", "AWS Serverless (Python/NodeJs), Firebase, Docker"));
+		skillsColumn1.appendChild(createSkill('Mobile', 15, "Pleb", "Flutter"));
+		skillsColumn1.appendChild(createSkill('Embedded Systems/ESP32', 10, "Barely Surviving", "C/C++"));
+	
 		// skillsColumn1.appendChild(createSkill('Adobe Illustrator', 85, ));
 		// skillsColumn1.appendChild(createSkill('Adobe After Effects', 97));
 		// skillsColumn1.appendChild(createSkill('Sketch', 90));

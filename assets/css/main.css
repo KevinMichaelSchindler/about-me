@@ -240,21 +240,21 @@ input, select, textarea {
 	  display: flex;
 	  text-align: center;
 	  justify-content: center;
-	  align-items: center;
+	  align-items: start;
   }
   .single-progress-txt h3 {
 
-	  width: 30%;
+	  width: 35%;
 	  color: #a606c3;
 	  position: relative;
-	  top: 6px;
-	  left: 20px;
-	  align-items: center;
+	  margin-left: 1.3rem;
+	  /* top: -5px; */
+	  /* left: 20px; */
 	  display: flex;
-	  flex-direction: row; 
-	  align-items: center;
-	  justify-content: center;
-	  text-align: center;
+	  /* flex-direction: row;  */
+	  /* align-items: start; */
+	  justify-content: left;
+	  text-align: left;
   }
   .barWrapper {
 	  font-weight: 400;
@@ -266,9 +266,10 @@ input, select, textarea {
 	  overflow: visible;
 	  background: #e6ecf3;
 	  height:8px;
-	  margin-top: 20px 0;
+	  margin-top: 1rem;
+	  margin-bottom:  0;
 	  /* margin-top: 15px; */
-	  width: 70%;
+	  width: 100%;
 	  /* margin-bottom: 37px; */
 	  display: flex;
 	  flex-direction: row; 
@@ -276,6 +277,31 @@ input, select, textarea {
 
   }
 
+  .technologies-txt{
+	/* display: flex; */
+	/* justify-content: start; */
+	margin-top: 0.4rem;
+	text-align: left;
+	width: 100%;
+  }
+
+  .progress-bar {
+	background: #b636ff;
+	 border-radius: 3px;
+	-webkit-transition: width 1.5s ease-in-out;
+	-ms-transition: width 1.5s ease-in-out;
+	-moz-transition: width 1.5s ease-in-out;
+	-o-transition: width 1.5s ease-in-out;
+	transition: width 1.5s ease-in-out;
+ }
+
+ #skillsColumn1{
+	margin-top: 1rem;
+ }
+
+.progress-col{
+	width: 100%;
+}
   .tooltip{
 	 position:relative;
 	 float:right;
@@ -336,21 +362,27 @@ input, select, textarea {
 	border-radius: 5px;
   }
   
-  .barWrapper {
-	margin-bottom: 20px;
-  }
+  /* .barWrapper {
+	padding-bottom: 0.2rem;
+  } */
   
   .progressText {
-	/* text-align: left; */
+
+	text-align: left;
 	font-weight: bold;
 	/* justify-content: start; */
   }
+  .barWrapper .progressText {
+	display: block; /* Ensures the text takes full width */
+    text-align: left;
+}
+
   
   .progress-bar {
 	background-color: #4caf50;
 	height: 8px;
 	border-radius: 5px;
-  
+	
 	/* Animation */
 	animation-duration:3s;
 	animation-timing-function: ease-out;
@@ -364,54 +396,38 @@ input, select, textarea {
 	  width: 100%;
 	}
   }
-/* .image-row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .image-container {
-    flex: 1;
-    box-sizing: border-box;
-  }
-
-  .image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  @media (max-width: 767px) {
-    .image-row {
-      flex-direction: column;
-	  align-items: center; 
-
-    }
-
-    .image-container {
-      max-width: 100%; 
-	  
-    }
-  } */
 
 
-/* .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
 
-  .gallery article {
-    flex: 1;
-    max-width: 48%; 
-    box-sizing: border-box;
-    margin-bottom: 20px; 
-  }
 
-  .gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-  } */
+  .image-text {
+    position: absolute;
+    color: white; /* Text color */
+    font-size: 2vw; /* Adjust the font size using viewport width units */
+    font-weight: bold; /* Adjust the font weight as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional text shadow for better visibility */
+}
+
+#eggplant{
+	top: 17%; /* Adjust the percentage distance from the bottom as needed */
+    left: 38%; /* Adjust the percentage distance from the left as needed */
+}
+
+#zucchini{
+	top: 25%; /* Adjust the percentage distance from the bottom as needed */
+    left: 3%; /* Adjust the percentage distance from the left as needed */
+}
+
+#tai{
+	top: 0%; /* Adjust the percentage distance from the bottom as needed */
+    left: 40%; /* Adjust the percentage distance from the left as needed */
+}
+
+#wiring{
+	bottom:  1%; /* Adjust the percentage distance from the bottom as needed */
+    left: 0%; /* Adjust the percentage distance from the left as needed */
+}
+
   
 /* Basic */
 
@@ -2377,7 +2393,7 @@ input, select, textarea {
 
 		.main.style3 {
 			text-align: center;
-			padding: 6em 0 6em 0;
+			padding: 4em 0 4em 0;
 		}
 
 			.main.style3 .content > header {
