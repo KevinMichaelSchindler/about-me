@@ -7,3 +7,5 @@ Welcome to my GitHub repository! This is where I, a Tech Solo-Wanapreneur with a
 ArtListingPro is my brainchild—a SaaS platform designed to simplify the creation of high-ranking Digital Art Etsy Listings. It empowers users to establish and scale a lucrative Etsy Shop within minutes. If you're into crafting Digital Art using AI Image Models, this platform handles the SEO and image processing tech intricacies, freeing you to focus on your creative genius.
 
 For a deeper dive into the project, check out the [ArtListingPro](https://artlistingpro.com/) and discover how it can transform your digital art hustle.
+
+© Kevin Michael Schindler
