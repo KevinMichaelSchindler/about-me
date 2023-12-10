@@ -520,4 +520,37 @@ for (i = 0; i < coll.length; i++) {
 		// skillsColumn2.appendChild(createSkill('Communication', 97));
 		// skillsColumn2.appendChild(createSkill('Creativity', 90));
 	});
+
+
+	// // Check if the browser supports Intersection Observer
+	// if ('IntersectionObserver' in window) {
+	// 	// Create an Intersection Observer
+	// 	var observer = new IntersectionObserver(function (entries, observer) {
+	// 	  entries.forEach(function (entry) {
+	// 		// If an image comes into the viewport, load its source
+	// 		if (entry.isIntersecting) {
+	// 		  entry.target.src = entry.target.getAttribute('data-src');
+	// 		  observer.unobserve(entry.target); // Stop observing once loaded
+	// 		}
+	// 	  });
+	// 	}, { threshold: 0.5 }); // Adjust threshold as needed
 	
+	// 	// Select all elements with the "lazy-load" class
+	// 	var lazyLoadImages = document.querySelectorAll('.lazy-load');
+	
+	// 	// Observe each lazy load image
+	// 	lazyLoadImages.forEach(function (image) {
+	// 	  observer.observe(image);
+	// 	});
+	//   }
+	
+	self.addEventListener('fetch', (event) => {
+		event.respondWith(
+		  (async () => {
+			const response = await fetch(event.request);
+			// Your additional logic here
+			return response;
+		  })()
+		);
+	  });
+	  
