@@ -503,12 +503,13 @@ for (i = 0; i < coll.length; i++) {
 		}
 	
 		// Skills for column 1
-		skillsColumn1.appendChild(createSkill('Data Science/ML', 70, "Decent", "Python, Pytorch, Tensorflow, Scikit, Xgboost, Numpy, Pandas, etc." ));
+		skillsColumn1.appendChild(createSkill('Data Science/ML', 70, "Decent", "Python, Pytorch, Tensorflow, Scikit, Xgboost, Numpy, Pandas, etc."));
 		skillsColumn1.appendChild(createSkill('Frontend', 50, "Can get by", "Angular/Typescript, HTML, CSS"));
 		skillsColumn1.appendChild(createSkill('Backend', 30, "Monkey pressing buttons", "AWS Serverless (Python/NodeJs), Firebase, Docker"));
 		skillsColumn1.appendChild(createSkill('Mobile', 15, "Pleb", "Flutter"));
 		skillsColumn1.appendChild(createSkill('Embedded Systems/ESP32', 10, "Barely Surviving", "C/C++"));
-	
+		
+
 		// skillsColumn1.appendChild(createSkill('Adobe Illustrator', 85, ));
 		// skillsColumn1.appendChild(createSkill('Adobe After Effects', 97));
 		// skillsColumn1.appendChild(createSkill('Sketch', 90));

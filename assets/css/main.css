@@ -428,6 +428,49 @@ input, select, textarea {
     left: 0%; /* Adjust the percentage distance from the left as needed */
 }
 
+
+
+
+/* 
+
+#interests.main.style3.primary {
+    position: relative;
+    box-sizing: border-box;
+
+ 
+	background-image: url('../../images/alp_background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 -120%;
+
+	margin-left: -20% !important;
+    
+	width: 140% !important 
+
+}
+
+#interests .content {
+    position: relative;
+    z-index: 1; 
+} */
+/* #interests .content {
+    position: relative;
+    z-index: 1; 
+}
+
+#interests.main.style3.primary:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100px; 
+    background-image: url('../../images/alp_background.png') repeat;
+    z-index: -1;
+} */
+
+
   
 /* Basic */
 
@@ -2607,11 +2650,12 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		background: url("images/overlay.png"), url("../../images/Screenshot 2023-12-05 194105.png");
+		background: url("images/overlay.png"), url("../../images/Screenshot 2023-12-05 194105.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
 		background-repeat: repeat, no-repeat;
+		overflow: hidden;
 	}
 
 /* One */
