@@ -445,6 +445,46 @@ input, select, textarea {
     height: 100%;
 }
 
+@media (max-width: 480px) {
+	.video-cont3by4 {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		padding-bottom: 75%; /* 4:3 aspect ratio on smaller screens */
+	}
+	
+	.video-cont3by4 iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+}
+
+/* 
+@media (min-width: 481px) and (max-with: 736px) {
+	.video-cont3by4 {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		padding-bottom: 56.25%;
+	}
+	
+	.video-cont3by4 iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+}
+ */
+
+
+
 
 
 

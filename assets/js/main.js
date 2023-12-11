@@ -521,36 +521,84 @@ for (i = 0; i < coll.length; i++) {
 		// skillsColumn2.appendChild(createSkill('Creativity', 90));
 	});
 
-
-	// // Check if the browser supports Intersection Observer
-	// if ('IntersectionObserver' in window) {
-	// 	// Create an Intersection Observer
-	// 	var observer = new IntersectionObserver(function (entries, observer) {
-	// 	  entries.forEach(function (entry) {
-	// 		// If an image comes into the viewport, load its source
-	// 		if (entry.isIntersecting) {
-	// 		  entry.target.src = entry.target.getAttribute('data-src');
-	// 		  observer.unobserve(entry.target); // Stop observing once loaded
-	// 		}
-	// 	  });
-	// 	}, { threshold: 0.5 }); // Adjust threshold as needed
+	document.getElementById('hydro-toggleButton1').addEventListener('click', function () {
+		// Lazy load images
+		var imagesToLoad = document.querySelectorAll('img[data-src]:not([loading])');
+		imagesToLoad.forEach(function (img) {
+			img.src = img.getAttribute('data-src');
+			img.style.display = 'block'; // Make the image visible
+		});
 	
-	// 	// Select all elements with the "lazy-load" class
-	// 	var lazyLoadImages = document.querySelectorAll('.lazy-load');
+		// Lazy load videos
+		var lazyVideos = document.querySelectorAll('video.lazy');
+		lazyVideos.forEach(function (video) {
+			video.querySelectorAll('source[data-src]').forEach(function (videoSource) {
+				videoSource.src = videoSource.dataset.src;
+			});
+			video.load();
+			video.classList.remove("lazy");
+		});
+	});
 	
-	// 	// Observe each lazy load image
-	// 	lazyLoadImages.forEach(function (image) {
-	// 	  observer.observe(image);
-	// 	});
-	//   }
+	// Check if the browser supports Intersection Observer
+	if ('IntersectionObserver' in window) {
+		// Create an Intersection Observer for images
+		var imageObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(function (entry) {
+				// If an image comes into the viewport, load its source
+				if (entry.isIntersecting) {
+					entry.target.src = entry.target.getAttribute('data-src');
+					observer.unobserve(entry.target); // Stop observing once loaded
+				}
+			});
+		}, { threshold: 0.5 }); // Adjust threshold as needed
 	
-	self.addEventListener('fetch', (event) => {
-		event.respondWith(
-		  (async () => {
-			const response = await fetch(event.request);
-			// Your additional logic here
-			return response;
-		  })()
-		);
-	  });
-	  
+		// Select all elements with the "lazy-load" class for images
+		var lazyLoadImages = document.querySelectorAll('.lazy-load');
+	
+		// Observe each lazy load image
+		lazyLoadImages.forEach(function (image) {
+			imageObserver.observe(image);
+		});
+	
+		// Create an Intersection Observer for videos
+		var videoObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(function (video) {
+				if (video.isIntersecting) {
+					video.target.querySelectorAll('source[data-src]').forEach(function (videoSource) {
+						videoSource.src = videoSource.dataset.src;
+					});
+					video.target.load();
+					video.target.classList.remove("lazy");
+					observer.unobserve(video.target);
+				}
+			});
+		});
+	
+		// Select all elements with the "lazy" class for videos
+		var lazyVideos = document.querySelectorAll('video.lazy');
+	
+		// Observe each lazy video
+		lazyVideos.forEach(function (lazyVideo) {
+			videoObserver.observe(lazyVideo);
+		});
+	
+		// Create an Intersection Observer for iframes
+		var iframeObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(function (iframe) {
+				if (iframe.isIntersecting) {
+					iframe.target.src = iframe.target.getAttribute('data-src');
+					observer.unobserve(iframe.target);
+				}
+			});
+		}, { threshold: 0.5 }); // Adjust threshold as needed
+	
+		// Select all elements with the "lazy-iframe" class for iframes
+		var lazyIframes = document.querySelectorAll('iframe.lazy-iframe');
+	
+		// Observe each lazy iframe
+		lazyIframes.forEach(function (lazyIframe) {
+			iframeObserver.observe(lazyIframe);
+		});
+	}
+	
